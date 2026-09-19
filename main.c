@@ -8,6 +8,10 @@ char buffer[100];
     double a, b,result;
     int command;
     printf("Введите одно или два числа (через пробел):\n");
+    if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
+        printf("Ошибка чтения строки!\n");
+        return 1;
+    }
     int count = sscanf(buffer, "%lf %lf", &a, &b);
     if (count == 2) {
         printf("Выберите операцию:\n");
